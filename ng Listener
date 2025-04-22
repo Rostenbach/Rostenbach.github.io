@@ -1,0 +1,11 @@
+name: Ping Listener
+
+on:
+  repository_dispatch:
+    types: [ping]
+
+jobs:
+  acknowledge-ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🛰️ Ping received: success=${{ github.event.client_payload.success }}"
